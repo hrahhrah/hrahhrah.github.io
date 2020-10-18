@@ -16,6 +16,14 @@
     <!-- Custom styles for this template -->
     <link href="css/scrolling-nav.css" rel="stylesheet">
 
+<!--    Personalized CSS-->
+    <style>
+        table, th, td { border: 1px solid black; text-align: center }
+        th { background-color: lightgray }
+        .wide-column { width: 50% }
+        .narrow-column { width: 10% }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -31,23 +39,29 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#synopsis">Synopsis</a>
+                        <a class="nav-link js-scroll-trigger" href="#purpose">Purpose</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#goals">Goals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#requirements">Requirements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#architecture">Architecture</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#models">Models</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#plan">Project Plan</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#risk">Risk Management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#time">Time & Effort</a>
+                        <a class="nav-link js-scroll-trigger" href="#links">Links & documentation</a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#metrics">Metrics</a>
-                    </li>
+                    </li>--->
                 </ul>
             </div>
         </div>
@@ -61,18 +75,19 @@
         </div>
     </header>
 
-    <section id="synopsis">
+    <section id="purpose">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2>Project Synopsis</h2>
+                    <h2>Project Purpose</h2>
                     <p class="lead">
                         <span class="tabSpace"></span>
-                        This product will improve an existing neural network algorithm. The model 
-                        currently uses sentiment analysis to classify Amazon reviews. The current 
-                        project will retool this model, potentially making changes to the algorithm 
-                        with the goal of improving the accuracy of the model, which is currently 
-                        at a baseline of 60%. 
+                        The purpose of this project is to follow a typical software life cycle model 
+                        through from beginning to end. We will focus on improving the current existing 
+                        machine learning model to classify Amazon reviews using sentiment analysis, 
+                        while using the OpenUp Agile methodology. We will also discuss wrapping the 
+                        model in a user-friendly interface to allow quick and easy positive/negative 
+                        predictions to new review text. 
                         <br>
                         <span class="tabSpace"></span>
                     </p>
@@ -80,63 +95,183 @@
             </div>
         </div>
     </section>
+        <section id="goals" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Goals</h2>
+                    <p class="lead">
+                        <span class="tabSpace"></span>
+                        The goal of the project is to improve the accuracy and reliability of the existing 
+                        machine learning model by following a typical software life cycle process. The current 
+                        model is making predictions with an accuracy of ~60%, which is no better than random 
+                        guessing when taking into account the spread of the data. The current model is exclusively 
+                        predicting a rating of 1.0, which accounts for 60% of the entire dataset, and therefore 
+                        results in the 60% accuracy.</p>
+                    <p class="lead">
+                        <span class="tabSpace"></span>
+                        We hope to improve both the accuracy and the AUC (area under the ROC curve). Since 
+                        we will be transforming the target labels into binary (positive and negative) sentiment, 
+                        accuracy alone will not prove the reliability of our model. Therefore we will also be 
+                        looking at the ROC curve and specifically the AUC.</p>
+                        <br>
+                        <span class="tabSpace"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="requirements">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Requirements</h2>
+                    <p class="lead">
+                       <span class="tabSpace"></span>
+                       <ol class="lead">
+                       <li>An algorithm will consume text review data and return a predictive score for the 
+                       numerical rating of that review, either positive (1) or negative (0)</br>
+                            <span class="tabSpace"></span>1.1 The model must be a classification algorithm</li>
+                       <li>Training Model Accuracy will exceed 60% in order to improve on the existing model</li>
+                       <li>The algorithm will be accessed via API on a public website</li>
+                       <li>The User Interface for this API must have a text box where users can paste a 
+                       review text and submit</li>
+                       <li>The API will return a score within a reasonable time frame after the review is submitted</li>
+                       <li>The User Interface will make the predicted binary score available to the user</li>
 
-    <section id="models" class="bg-light">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="architecture" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Architecture</h2>
+                    <p class="lead">
+                        <span class="tabSpace"></span>
+                        For this term project, our solution architecture is limited to MS Azure ML Studio. We 
+                        will deliver our improved model and outputs via ML Studio directly.</p>
+                    <p class="lead">
+                        <span class="tabSpace"></span>
+                        In addition, we have drawn out what the architecture might look like for a production deployment.
+                        There, we would have users interact with a simple UI attached to API endpoint. In that 
+                        UI, users can input review text and get a “pos/neg” sentiment returned. We would have our 
+                        reference data in Azure storage and use ML Studio to build the model. The model and API 
+                        would be deployed using an AKS (Azure Kubernetes Service), since we want to have a real-time 
+                        interaction and response.</p>
+                    <p class="lead">
+                        <span class="tabSpace"></span>
+                        For more information about architecture and designs:</br> 
+                        <span class="tabSpace"></span><a href='./Architecture_Design.pdf'>https://hrahhrah.github.io/Architecture_Design.pdf</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="models">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Models</h2>
-                    <p class="lead">embed models document here
-                    <!---
-                        <embed src="content/models.pdf" type="application/pdf" width="100%"
-                            height="600px" />
-                        <figcaption>Download: <a href="content/models.pdf" download> here</a></figcaption>--->
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="plan">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2>Project Proposal</h2>
                     <p class="lead">
-                        <embed src="./Project_Proposal.pdf" type="application/pdf" width="100%"
-                            height="600px" />
-                        <figcaption>Download: <a href="./Project_Proposal.pdf" download> here</a></figcaption>
+                        <span class="tabSpace"></span>
+                        We are researching and experimenting with various two class algorithms and data processing 
+                        steps such as feature hashing, text preprocessing, Latent Dirichlet Allocation, and extracting
+                        key phrases. A finalized model description with metrics and a diagram will be displayed here
+                        after testing and evaluation is completed.
                     </p>
                 </div>
             </div>
         </div>
     </section>
-
     <section id="risk" class="bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Risk Management</h2>
-                    <p class="lead">embed any risk management documentation here
-                    <!---
-                        <embed src="content/Risk_Management.pdf" type="application/pdf" width="100%"
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="narrow-column">Risk Number</th>
+                        <th class="narrow-column">Risk</th>
+                        <th class="narrow-column">Likelihood<br>(0-1)</th>
+                        <th class="narrow-column">Impact<br>(1-10)</th>
+                        <th class="narrow-column">Risk Score</th>
+                        <th class="wide-column">Mitigation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Model process failure</td>
+                        <td>0.1</td>
+                        <td>10</td>
+                        <td>1</td>
+                        <td>MS Azure ML has high availability, the likelihood of a system failure is low and any downtime would be minimal.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Model scoring failure</td>
+                        <td>0.2</td>
+                        <td>8</td>
+                        <td>1.6</td>
+                        <td>Depending on the algorithm, some models are more likely to degrade over time than others. In addition, some algorithms do not provide details about the score, and incorrect predictions may be difficult to explain. This risk will be taken into account during 	the model selection and evaluation steps.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Data input (user error)</td>
+                        <td>0.6</td>
+                        <td>4</td>
+                        <td>2.4</td>
+                        <td>Users inputting non-text or non review data will be scored unless 	error handling is built into the model. This risk is not captured in the requirements and any documentation created or user manuals should explain how to use the product.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- <section id="time">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Time & Effort</h2>
+                    <p class="lead">embed time and effort document here
+                        <embed src="content/time.pdf" type="application/pdf" width="100%"
                             height="600px" />
-                        <figcaption>Download: <a href="content/Risk_Management.pdf" download> here</a></figcaption>--->
+                        <figcaption>Download: <a href="content/time.pdf" download> here</a></figcaption>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>--->
+    <section id="links">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Project links and documentation</h2>
+                    <p class="lead">
+                        Github: <a href='https://github.com/MattAgone/DSCI644-Team-B-Project'>https://github.com/MattAgone/DSCI644-Team-B-Project</a></br>
+                        Trello: <a href='https://trello.com/b/UvRzi2Zz/dsci644-team-b-term-project'>https://trello.com/b/UvRzi2Zz/dsci644-team-b-term-project</a></br>
+                        Architecture and designs: <a href='./Architecture_Design.pdf'>https://hrahhrah.github.io/Architecture_Design.pdf</a></br>
+                        Original project proposal: <a href='./Project_Proposal.pdf'>https://hrahhrah.github.io/Project_Proposal.pdf</a></br>
                     </p>
                 </div>
             </div>
         </div>
     </section>
-
+<!---
     <section id="time">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2>Time & Effort</h2>
                     <p class="lead">embed time and effort document here
-                        <!---<embed src="content/time.pdf" type="application/pdf" width="100%"
+                        <embed src="content/time.pdf" type="application/pdf" width="100%"
                             height="600px" />
-                        <figcaption>Download: <a href="content/time.pdf" download> here</a></figcaption>--->
+                        <figcaption>Download: <a href="content/time.pdf" download> here</a></figcaption>
                     </p>
                 </div>
             </div>
@@ -149,9 +284,9 @@
                 <div class="col-lg-8 mx-auto">
                     <h2>Metrics</h2>
                     <p class="lead">embed metrics documentation here</br>
-                    <!---<embed src="content/time.pdf" type="application/pdf" width="100%"
+                    <embed src="content/time.pdf" type="application/pdf" width="100%"
                             height="600px" />
-                        <figcaption>Download: <a href="content/time.pdf" download> here</a></figcaption>--->
+                        <figcaption>Download: <a href="content/time.pdf" download> here</a></figcaption>
 
                         <span class="tabSpace"></span>
                         Metrics required for scheduling and estimating our performance and progress will be divided up
@@ -171,7 +306,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--->
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
