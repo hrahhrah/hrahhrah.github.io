@@ -176,10 +176,24 @@
                     <h2>Models</h2>
                     <p class="lead">
                         <span class="tabSpace"></span>
-                        We are researching and experimenting with various two class algorithms and data processing 
-                        steps such as feature hashing, text preprocessing, Latent Dirichlet Allocation, and extracting
-                        key phrases. A finalized model description with metrics and a diagram will be displayed here
-                        after testing and evaluation is completed.
+                        We researched and experimented with various two class algorithms and data processing 
+                        steps such as feature hashing and text preprocessing. After extensive testing and evaluation, we 
+                        choose a model using the decision jungle algorithm with a SQL transformation to split the reviews 
+                        into binary classes, and the text preprocessing, Extracting Key Phrases From Text, Latent Dirichlet 
+                        Allocation and SMOTE modules from Azure. 
+                    </p>
+                    <p class="lead">
+                        <span></span>
+                        <img src='./final_model_644.png' width=50% ALIGN='left' HSPACE='30'/>
+                        Our final model metrics:
+                        <ul>
+                            <li class="lead">At a .5 threshold, the model achieved accuracy of .926</li>
+                            <li class="lead">Precision and AUC of 1.00</li>
+                            <li class="lead">Recall of .863</li>
+                            <li class="lead">F1 of .926</li>
+                            <li class="lead">Guessed 37254 True Positive, 0 False Positive, 5932 False Negative and 37156 True Negative</li>
+                        </ul>
+                        
                     </p>
                 </div>
             </div>
